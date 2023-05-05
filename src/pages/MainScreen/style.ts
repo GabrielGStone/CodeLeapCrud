@@ -4,7 +4,6 @@ export const Container = styled.div`
   min-height: 100vh;
   height: 100%;
   background-color: #fff;
-  margin-bottom: 24px;
 `;
 
 export const PostsBody = styled.div`

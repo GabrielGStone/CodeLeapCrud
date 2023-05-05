@@ -5,7 +5,7 @@ export const LayoutBox = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 0 20%;
+  padding: 0px 20%;
   background-color: #ddd;
   min-height: 100vh;
 `;
