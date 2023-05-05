@@ -8,5 +8,5 @@ const validations = {
 export const errorMessages = {
   nameRequired: `nome ${validations.required}`,
   titleRequired: `titulo ${validations.required}`,
-  detailsRequired: `descrição ${validations.required}`,
+  contentRequired: `descrição ${validations.required}`,
 };

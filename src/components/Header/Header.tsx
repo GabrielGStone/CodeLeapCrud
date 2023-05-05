@@ -1,5 +1,4 @@
 import { Container, HeaderText, LogoutButton } from "./styles";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { authActions } from "../../state/actions";
 

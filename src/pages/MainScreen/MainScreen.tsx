@@ -6,7 +6,8 @@ import { RootState } from "../../state";
 import { useDispatch } from "react-redux";
 import { authActions } from "../../state/actions";
 import Header from "../../components/Header/Header";
-import { Container } from "./style";
+import { Container, PostsBody } from "./style";
+import CreatePost from "../../components/CreatePost/CreatePost";
 
 const MainScreen = () => {
   const token = useSelector((state: RootState) => state.auth.token);
@@ -20,6 +21,9 @@ const MainScreen = () => {
     <Layout>
       <Container>
         <Header />
+        <PostsBody>
+          <CreatePost />
+        </PostsBody>
       </Container>
     </Layout>
   );
