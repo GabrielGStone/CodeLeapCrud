@@ -6,7 +6,7 @@ const validations = {
 };
 
 export const errorMessages = {
-  nameRequired: `name ${validations.required}`,
+  nameRequired: `nome ${validations.required}`,
   titleRequired: `titulo ${validations.required}`,
   detailsRequired: `descrição ${validations.required}`,
 };

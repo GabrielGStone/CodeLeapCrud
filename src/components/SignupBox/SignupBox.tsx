@@ -1,12 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import Button from "../Button/Button";
-import { Container, Input, InputTitle, SingupTitle } from "./styles";
+import { Container, SingupTitle } from "./styles";
 import * as yup from "yup";
 import { errorMessages } from "../ErrorMessages/error_messages";
-import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { authActions } from "../../state/actions";
+import { useDispatch } from "react-redux";
+import TextInput from "../TextInput/TextInput";
 
 const schema = yup
   .object({
@@ -16,37 +17,38 @@ const schema = yup
 
 const SignupBox = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const {
     control,
     handleSubmit,
     formState: { errors },
-    reset,
   } = useForm({
     resolver: yupResolver(schema),
     defaultValues: {
-      email: "",
-      password: "",
+      name: "",
     },
   });
 
   const onSubmit = async (data: any) => {
-    dispatch(authActions.login(data));
-    navigate("/todo-list");
-    reset();
+    dispatch(authActions.login(data.name));
   };
 
   return (
-    <Container>
-      <SingupTitle>Welcome to CodeLeap network!</SingupTitle>
-      <InputTitle>Please enter your username</InputTitle>
-      <Input placeholder="John doe" />
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <Container>
+        <SingupTitle>Welcome to CodeLeap network!</SingupTitle>
+        <TextInput
+          name="name"
+          control={control}
+          placeholder="John doe"
+          error={errors.name}
+        >
+          Please enter your username
+        </TextInput>
 
-      <Button theme="save" type="submit" onClick={navigate("/")}>
-        ENTER
-      </Button>
-    </Container>
+        <Button type="submit">ENTER</Button>
+      </Container>
+    </form>
   );
 };
 

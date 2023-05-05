@@ -3,7 +3,7 @@ import { CustomButton } from "./styles";
 interface ButtonProps {
   children: string;
   theme?: keyof typeof types;
-  onClick: void;
+  onClick?: void;
   type?: "button" | "submit" | "reset" | undefined;
 }
 const types = {
