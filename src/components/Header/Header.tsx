@@ -5,11 +5,6 @@ import { authActions } from "../../state/actions";
 
 const Header = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
-
-  const handleNavigate = () => {
-    navigate("/");
-  };
 
   const Logout = () => {
     dispatch(authActions.logout());
@@ -18,7 +13,7 @@ const Header = () => {
   return (
     <>
       <Container>
-        <HeaderText onClick={handleNavigate}>todo list</HeaderText>
+        <HeaderText>CodeLeap Network</HeaderText>
         <LogoutButton onClick={Logout}>Logout</LogoutButton>
       </Container>
     </>

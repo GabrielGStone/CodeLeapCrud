@@ -5,6 +5,8 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../state";
 import { useDispatch } from "react-redux";
 import { authActions } from "../../state/actions";
+import Header from "../../components/Header/Header";
+import { Container } from "./style";
 
 const MainScreen = () => {
   const token = useSelector((state: RootState) => state.auth.token);
@@ -14,14 +16,11 @@ const MainScreen = () => {
     !token && navigate("/signup");
   }, [token]);
 
-  const Logout = () => {
-    dispatch(authActions.logout());
-  };
-
   return (
     <Layout>
-      <div>{token}</div>
-      <button onClick={Logout}>logout</button>
+      <Container>
+        <Header />
+      </Container>
     </Layout>
   );
 };
