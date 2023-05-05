@@ -21,8 +21,6 @@ const TextInput: FC<TextInputProps> = ({
   error,
   isContent,
 }) => {
-  console.log("component test", error);
-
   return (
     <TextContainer>
       <TitleText>{children}</TitleText>
