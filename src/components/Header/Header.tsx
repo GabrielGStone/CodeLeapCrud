@@ -1,7 +1,7 @@
 import { Container, HeaderText, LogoutButton } from "./styles";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { authActions } from "../../redux/actions";
+import { authActions } from "../../state/actions";
 
 const Header = () => {
   const dispatch = useDispatch();
