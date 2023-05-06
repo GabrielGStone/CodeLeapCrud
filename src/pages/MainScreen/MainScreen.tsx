@@ -17,14 +17,21 @@ const MainScreen = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { getPosts } = usePosts();
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState<responseType | undefined>();
 
   const _getPosts = async () => {
     const data = await getPosts();
-    setPosts(data.results);
-    console.log("aaa", data.results);
+    setPosts(data);
+    console.log("aaa", data);
   };
 
+  const getNextPosts = async () => {
+    const nextPosts = await getPosts(posts?.next);
+    setPosts({
+      ...nextPosts,
+      results: [...(posts?.results || []), ...nextPosts.results],
+    });
+  };
   useEffect(() => {
     _getPosts();
     //eslint-disable-next-line
@@ -40,7 +47,7 @@ const MainScreen = () => {
         <Header />
         <PostsBody>
           <CreatePost />
-          <Posts posts={posts}></Posts>
+          <Posts posts={posts?.results} getNextPosts={getNextPosts}></Posts>
         </PostsBody>
       </Container>
     </Layout>

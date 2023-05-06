@@ -29,7 +29,7 @@ const postSlice = createSlice({
 
     setPost: (state, action) => {
       state.posts.push({
-        id: new Date(),
+        id: action.payload.id,
         title: action.payload.title,
         details: action.payload.details,
         isChecked: false,
