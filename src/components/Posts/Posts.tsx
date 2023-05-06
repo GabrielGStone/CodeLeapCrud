@@ -1,6 +1,8 @@
 import { FC } from "react";
 import Post from "../Post/Post";
 import InfiniteScroll from "react-infinite-scroll-component";
+import { useSelector } from "react-redux";
+import { RootState } from "../../state";
 
 interface postsProps {
   posts: any;
@@ -8,6 +10,11 @@ interface postsProps {
 }
 
 const Posts: FC<postsProps> = ({ posts, getNextPosts }) => {
+  const myPosts = useSelector((state: RootState) => state.post.posts);
+
+  const isMyPost = (id: number) => {
+    return myPosts.some((data: any) => data.id === id);
+  };
   return (
     <>
       <InfiniteScroll
@@ -20,7 +27,7 @@ const Posts: FC<postsProps> = ({ posts, getNextPosts }) => {
           (data: {
             title: string;
             username: string;
-            id: string;
+            id: number;
             content: string;
             created_datetime: string;
           }) => {
@@ -30,9 +37,9 @@ const Posts: FC<postsProps> = ({ posts, getNextPosts }) => {
                 <Post
                   title={title}
                   username={username}
-                  id={id}
                   content={content}
                   time={created_datetime}
+                  isMyPost={isMyPost(id)}
                 />
               </div>
             );

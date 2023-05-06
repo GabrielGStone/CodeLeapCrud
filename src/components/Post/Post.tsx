@@ -1,5 +1,6 @@
 import { FC } from "react";
 import {
+  ButtonContainer,
   Content,
   PostContent,
   PostHeader,
@@ -8,18 +9,28 @@ import {
   Wrap,
 } from "./styles";
 import getRelativeTime from "../../utils/getRelativeTime";
+import EditButton from "../EditButton/EditButton";
+import DeleteButton from "../DeleteButton/DeleteButton";
 
 interface postProps {
   title: string;
   username: string;
   time: string;
   content: string;
-  id: string;
+  isMyPost: boolean;
 }
-const Post: FC<postProps> = ({ title, username, time, content, id }) => {
+const Post: FC<postProps> = ({ title, username, time, content, isMyPost }) => {
   return (
     <>
-      <PostHeader>{title}</PostHeader>
+      <PostHeader>
+        <>{title}</>
+        {isMyPost && (
+          <ButtonContainer>
+            <DeleteButton />
+            <EditButton />
+          </ButtonContainer>
+        )}
+      </PostHeader>
       <Content>
         <Wrap>
           <PostName>@{username}</PostName>

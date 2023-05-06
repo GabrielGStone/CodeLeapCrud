@@ -47,3 +47,7 @@ export const Content = styled.div`
   margin-bottom: 24px;
   border-top: none;
 `;
+
+export const ButtonContainer = styled.div`
+  display: flex;
+`;

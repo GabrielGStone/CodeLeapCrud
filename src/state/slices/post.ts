@@ -20,19 +20,19 @@ const postSlice = createSlice({
       );
 
       state.posts[postsIndex] = {
+        username: action.payload.username,
         id: action.payload.id,
         title: action.payload.title,
-        details: action.payload.details,
-        isChecked: action.payload.isChecked,
+        content: action.payload.content,
       };
     },
 
     setPost: (state, action) => {
       state.posts.push({
+        username: action.payload.username,
         id: action.payload.id,
         title: action.payload.title,
-        details: action.payload.details,
-        isChecked: false,
+        content: action.payload.content,
       });
     },
 
