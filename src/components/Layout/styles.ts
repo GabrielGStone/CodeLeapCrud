@@ -8,4 +8,8 @@ export const LayoutBox = styled.div`
   padding: 0px 20%;
   background-color: #ddd;
   min-height: 100vh;
+
+  @media (max-width: 1000px) {
+    padding: 0px;
+  }
 `;

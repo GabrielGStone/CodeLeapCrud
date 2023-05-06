@@ -34,7 +34,7 @@ const MainScreen = () => {
   useEffect(() => {
     _getPosts();
     //eslint-disable-next-line
-  }, []);
+  }, [getPosts]);
 
   useEffect(() => {
     !token && navigate("/signup");

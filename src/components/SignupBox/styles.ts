@@ -8,6 +8,7 @@ export const Container = styled.div`
   padding: 24px;
   width: 500px;
   border-radius: 16px;
+  max-width: 100vw;
 `;
 
 export const InputTitle = styled.p`
