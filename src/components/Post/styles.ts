@@ -1,13 +1,5 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  border: 1px #999 solid;
-  border-radius: 16px;
-  margin-bottom: 24px;
-`;
-
 export const PostHeader = styled.h4`
   display: flex;
   justify-content: space-between;
@@ -45,4 +37,13 @@ export const PostContent = styled.p`
   font-size: 18px;
   line-height: 21px;
   padding: 0 24px 24px 24px;
+`;
+
+export const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  border: 1px #999 solid;
+  border-radius: 0 0 16px 16px;
+  margin-bottom: 24px;
+  border-top: none;
 `;

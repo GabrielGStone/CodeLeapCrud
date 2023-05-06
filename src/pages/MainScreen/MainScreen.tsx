@@ -22,7 +22,6 @@ const MainScreen = () => {
   const _getPosts = async () => {
     const data = await getPosts();
     setPosts(data);
-    console.log("aaa", data);
   };
 
   const getNextPosts = async () => {

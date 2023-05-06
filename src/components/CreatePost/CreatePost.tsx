@@ -8,6 +8,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useDispatch } from "react-redux";
 import Button from "../Button/Button";
+import usePosts from "../../actions/usePosts";
 
 const schema = yup
   .object({
@@ -18,10 +19,13 @@ const schema = yup
 const CreatePost = () => {
   const dispatch = useDispatch();
   const token = useSelector((state: RootState) => state.auth.token);
+  const { postPosts } = usePosts();
+
   const {
     control,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm({
     resolver: yupResolver(schema),
     defaultValues: {
@@ -30,8 +34,16 @@ const CreatePost = () => {
     },
   });
 
-  const onSubmit = async (data: any) => {
-    dispatch(postActions.setPost(data));
+  const postAndSavePosts = async (data: any) => {
+    const payload = { ...data, username: token };
+    const res = await postPosts(payload);
+    console.log("payload:", payload);
+    console.log("res:", res);
+    dispatch(postActions.setPost(res));
+    reset();
+  };
+  const onSubmit = (data: any) => {
+    postAndSavePosts(data);
   };
 
   return (
@@ -49,9 +61,9 @@ const CreatePost = () => {
         </TextInput>
         <TextInput
           type=""
-          placeholder="content here."
+          placeholder="Content here"
           control={control}
-          name="details"
+          name="content"
           error={errors.content}
           isContent
         >

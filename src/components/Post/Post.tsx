@@ -1,6 +1,6 @@
 import { FC } from "react";
 import {
-  Container,
+  Content,
   PostContent,
   PostHeader,
   PostName,
@@ -18,14 +18,16 @@ interface postProps {
 }
 const Post: FC<postProps> = ({ title, username, time, content, id }) => {
   return (
-    <Container>
+    <>
       <PostHeader>{title}</PostHeader>
-      <Wrap>
-        <PostName>@{username}</PostName>
-        <PostTime>{getRelativeTime(time)}</PostTime>
-      </Wrap>
-      <PostContent>{content}</PostContent>
-    </Container>
+      <Content>
+        <Wrap>
+          <PostName>@{username}</PostName>
+          <PostTime>{getRelativeTime(time)}</PostTime>
+        </Wrap>
+        <PostContent>{content}</PostContent>
+      </Content>
+    </>
   );
 };
 
