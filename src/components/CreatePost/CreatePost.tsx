@@ -26,6 +26,7 @@ const CreatePost = () => {
     handleSubmit,
     formState: { errors },
     reset,
+    watch,
   } = useForm({
     resolver: yupResolver(schema),
     defaultValues: {
@@ -43,6 +44,9 @@ const CreatePost = () => {
   const onSubmit = (data: any) => {
     postAndSavePosts(data);
   };
+
+  const disabledTitle = watch("title");
+  const disabledContent = watch("content");
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -67,7 +71,9 @@ const CreatePost = () => {
         >
           Content
         </TextInput>
-        <Button type="submit">Create</Button>
+        <Button type="submit" disabled={!disabledTitle || !disabledContent}>
+          Create
+        </Button>
       </Container>
     </form>
   );

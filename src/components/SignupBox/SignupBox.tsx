@@ -21,6 +21,7 @@ const SignupBox = () => {
     control,
     handleSubmit,
     formState: { errors },
+    watch,
   } = useForm({
     resolver: yupResolver(schema),
     defaultValues: {
@@ -31,6 +32,8 @@ const SignupBox = () => {
   const onSubmit = async (data: any) => {
     dispatch(authActions.login(data.name));
   };
+
+  const disabled = watch("name");
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -45,7 +48,9 @@ const SignupBox = () => {
           Please enter your username
         </TextInput>
 
-        <Button type="submit">ENTER</Button>
+        <Button type="submit" disabled={!disabled}>
+          ENTER
+        </Button>
       </Container>
     </form>
   );

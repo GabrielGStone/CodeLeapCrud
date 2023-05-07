@@ -6,6 +6,7 @@ interface ButtonProps {
   onClick?: any;
   type?: "button" | "submit" | "reset" | undefined;
   loading?: boolean;
+  disabled?: boolean;
 }
 const types = {
   save: { background: "#47B960", borderColor: "#47B960" },
@@ -19,6 +20,7 @@ const Button: FC<ButtonProps> = ({
   onClick,
   type,
   loading,
+  disabled,
 }) => {
   return theme ? (
     <CustomButton
@@ -30,7 +32,7 @@ const Button: FC<ButtonProps> = ({
       {loading ? "..." : children}
     </CustomButton>
   ) : (
-    <CustomButton type={type} onClick={onClick} disabled={loading}>
+    <CustomButton type={type} onClick={onClick} disabled={disabled}>
       {loading ? "..." : children}
     </CustomButton>
   );

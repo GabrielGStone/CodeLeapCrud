@@ -8,12 +8,15 @@ export const CustomButton = styled.button`
   line-height: 19px;
   border-radius: 8px;
   color: #fff;
-  background-color: #7675ec;
+  background-color: #7695ec;
   border: 1px solid #7695ec;
   align-self: flex-end;
   justify-self: flex-end;
   margin-left: 16px;
   :hover {
     filter: brightness(85%);
+  }
+  :disabled {
+    filter: grayscale(1);
   }
 `;
