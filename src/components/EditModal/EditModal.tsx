@@ -87,7 +87,7 @@ const EditModal: FC<EditModalProps> = ({
           >
             Cancel
           </Button>
-          <Button theme="save" type="submit">
+          <Button theme="save" type="submit" loading={loading}>
             Save
           </Button>
         </ButtonContainer>
