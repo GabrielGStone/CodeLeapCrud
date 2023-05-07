@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import {
   ButtonContainer,
   Content,
@@ -11,6 +11,8 @@ import {
 import getRelativeTime from "../../utils/getRelativeTime";
 import EditButton from "../EditButton/EditButton";
 import DeleteButton from "../DeleteButton/DeleteButton";
+import EditModal from "../EditModal/EditModal";
+import DeleteModal from "../DeleteModal/DeleteModal";
 
 interface postProps {
   title: string;
@@ -18,16 +20,39 @@ interface postProps {
   time: string;
   content: string;
   isMyPost: boolean;
+  id: number;
 }
-const Post: FC<postProps> = ({ title, username, time, content, isMyPost }) => {
+const Post: FC<postProps> = ({
+  title,
+  username,
+  time,
+  content,
+  isMyPost,
+  id,
+}) => {
+  const [editModalOpen, setEditModalOpen] = useState(false);
+  const [deleteModalOpen, setDeleteModalOpen] = useState(false);
+
   return (
     <>
+      <EditModal
+        setEditModalOpen={setEditModalOpen}
+        editModalOpen={editModalOpen}
+        id={id}
+        title={title}
+        content={content}
+      />
+      <DeleteModal
+        setDeleteModalOpen={setDeleteModalOpen}
+        deleteModalOpen={deleteModalOpen}
+        id={id}
+      />
       <PostHeader>
         <>{title}</>
         {isMyPost && (
           <ButtonContainer>
-            <DeleteButton />
-            <EditButton />
+            <DeleteButton setDeleteModalOpen={setDeleteModalOpen} />
+            <EditButton setEditModalOpen={setEditModalOpen} />
           </ButtonContainer>
         )}
       </PostHeader>

@@ -1,9 +1,13 @@
 import { Button } from "./styles";
 import edit from "../../assets/edit.svg";
+import { Dispatch, FC, SetStateAction } from "react";
 
-const EditButton = () => {
-  const handleClick = () => {};
-  return <Button src={edit} />;
+interface EditModalProps {
+  setEditModalOpen: Dispatch<SetStateAction<boolean>>;
+}
+
+const EditButton: FC<EditModalProps> = ({ setEditModalOpen }) => {
+  return <Button onClick={() => setEditModalOpen(true)} src={edit} />;
 };
 
 export default EditButton;

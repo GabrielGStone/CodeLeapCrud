@@ -19,12 +19,8 @@ const usePosts = () => {
     return res;
   };
 
-  const patchPosts = async (data: {
-    id: string;
-    title: string;
-    content: string;
-  }) => {
-    const { id, ...payload } = data;
+  const patchPosts = async (id: number, title: string, content: string) => {
+    const payload = { title: title, content: content };
 
     const res = await patch(
       `https://dev.codeleap.co.uk/careers/${id}`,

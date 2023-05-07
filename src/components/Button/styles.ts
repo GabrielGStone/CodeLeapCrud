@@ -11,6 +11,8 @@ export const CustomButton = styled.button`
   background-color: #7675ec;
   border: 1px solid #7695ec;
   align-self: flex-end;
+  justify-self: flex-end;
+  margin-left: 16px;
   :hover {
     filter: brightness(85%);
   }

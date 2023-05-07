@@ -40,6 +40,7 @@ const Posts: FC<postsProps> = ({ posts, getNextPosts }) => {
                   content={content}
                   time={created_datetime}
                   isMyPost={isMyPost(id)}
+                  id={id}
                 />
               </div>
             );

@@ -9,12 +9,12 @@ import Header from "../../components/Header/Header";
 import { Container, PostsBody } from "./style";
 import CreatePost from "../../components/CreatePost/CreatePost";
 import usePosts from "../../actions/usePosts";
-import Post from "../../components/Post/Post";
 import Posts from "../../components/Posts/Posts";
 
 const MainScreen = () => {
   const token = useSelector((state: RootState) => state.auth.token);
-  const dispatch = useDispatch();
+  const myPosts = useSelector((state: RootState) => state.post.posts);
+
   const navigate = useNavigate();
   const { getPosts } = usePosts();
   const [posts, setPosts] = useState<responseType | undefined>();
@@ -34,7 +34,7 @@ const MainScreen = () => {
   useEffect(() => {
     _getPosts();
     //eslint-disable-next-line
-  }, [getPosts]);
+  }, [myPosts]);
 
   useEffect(() => {
     !token && navigate("/signup");

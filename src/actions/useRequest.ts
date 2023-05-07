@@ -33,12 +33,7 @@ const useRequest = () => {
   };
 
   const _delete = async (endpoint: string) => {
-    try {
-      const response = await axios.patch(endpoint);
-      return response.data;
-    } catch (err: any) {
-      return err.response?.data;
-    }
+    await axios.delete(endpoint);
   };
 
   return { get, post, patch, _delete };
