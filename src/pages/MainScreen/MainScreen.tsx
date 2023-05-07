@@ -3,8 +3,6 @@ import { useNavigate } from "react-router-dom";
 import Layout from "../../components/Layout/Layout";
 import { useSelector } from "react-redux";
 import { RootState } from "../../state";
-import { useDispatch } from "react-redux";
-import { authActions } from "../../state/actions";
 import Header from "../../components/Header/Header";
 import { Container, PostsBody } from "./style";
 import CreatePost from "../../components/CreatePost/CreatePost";
@@ -38,6 +36,7 @@ const MainScreen = () => {
 
   useEffect(() => {
     !token && navigate("/signup");
+    //eslint-disable-next-line
   }, [token]);
 
   return (

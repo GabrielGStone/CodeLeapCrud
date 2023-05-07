@@ -37,8 +37,6 @@ const CreatePost = () => {
   const postAndSavePosts = async (data: any) => {
     const payload = { ...data, username: token };
     const res = await postPosts(payload);
-    console.log("payload:", payload);
-    console.log("res:", res);
     dispatch(postActions.setPost(res));
     reset();
   };

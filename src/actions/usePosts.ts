@@ -23,14 +23,14 @@ const usePosts = () => {
     const payload = { title: title, content: content };
 
     const res = await patch(
-      `https://dev.codeleap.co.uk/careers/${id}`,
+      `https://dev.codeleap.co.uk/careers/${id}/`,
       payload
     );
     return res;
   };
 
   const deletePosts = async (id: any) => {
-    await _delete(`https://dev.codeleap.co.uk/careers/${id}`);
+    await _delete(`https://dev.codeleap.co.uk/careers/${id}/`);
   };
 
   return { getPosts, postPosts, patchPosts, deletePosts };

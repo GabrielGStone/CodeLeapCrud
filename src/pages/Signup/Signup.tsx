@@ -12,6 +12,7 @@ const Signup = () => {
 
   useEffect(() => {
     token && navigate("/");
+    //eslint-disable-next-line
   }, [token]);
 
   return (

@@ -20,8 +20,7 @@ const postSlice = createSlice({
       );
 
       state.posts[postsIndex] = {
-        username: action.payload.username,
-        id: action.payload.id,
+        ...state.posts[postsIndex],
         title: action.payload.title,
         content: action.payload.content,
       };

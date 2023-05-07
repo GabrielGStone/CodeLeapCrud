@@ -24,31 +24,12 @@ const useRequest = () => {
   };
 
   const patch = async (endpoint: string, payload: any) => {
-    const response = await axios({
-      method: "patch",
-      url: endpoint,
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "Bearer ",
-        "Access-Control-Allow-Headers": "Content-Type",
-        Allow: "GET, PUT, PATCH, DELETE, HEAD, OPTIONS",
-        Vary: "Accept",
-        method: "PATCH",
-      },
-      data: payload,
-    });
+    const response = await axios.patch(endpoint, payload);
     return response;
   };
 
-  const _delete = async (endpoint: string) => {
-    await axios({
-      method: "delete",
-      url: endpoint,
-      headers: {
-        "X-Requested-With": "XMLHttpRequest",
-        "X-HTTP-Method-Override": "DELETE",
-      },
-    });
+  const _delete = (endpoint: string) => {
+    axios.delete(endpoint);
   };
 
   return { get, post, patch, _delete };

@@ -8,6 +8,8 @@ import { errorMessages } from "../ErrorMessages/error_messages";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import usePosts from "../../actions/usePosts";
+import { useDispatch } from "react-redux";
+import { postActions } from "../../state";
 
 interface EditModalProps {
   setEditModalOpen: Dispatch<SetStateAction<boolean>>;
@@ -44,11 +46,12 @@ const EditModal: FC<EditModalProps> = ({
 
   const [loading, setLoading] = useState(false);
   const { patchPosts } = usePosts();
+  const dispatch = useDispatch();
 
   const onSubmit = async (data: any) => {
     setLoading(true);
     const res = await patchPosts(id, data.title, data.content);
-    console.log(res);
+    dispatch(postActions.editPost({ ...res.data, id }));
     setLoading(false);
     setEditModalOpen(false);
   };
