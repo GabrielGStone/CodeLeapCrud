@@ -20,8 +20,7 @@ const DeleteModal: FC<DeleteModalProps> = ({
 
   const deletePost = async () => {
     setLoading(true);
-    const res = await deletePosts(id);
-    console.log(res);
+    await deletePosts(id);
     setDeleteModalOpen(false);
     setLoading(false);
   };

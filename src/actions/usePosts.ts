@@ -30,8 +30,7 @@ const usePosts = () => {
   };
 
   const deletePosts = async (id: any) => {
-    const res = await _delete(`https://dev.codeleap.co.uk/careers/${id}`);
-    return res;
+    await _delete(`https://dev.codeleap.co.uk/careers/${id}`);
   };
 
   return { getPosts, postPosts, patchPosts, deletePosts };

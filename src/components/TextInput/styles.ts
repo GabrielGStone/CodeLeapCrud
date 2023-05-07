@@ -36,4 +36,24 @@ export const TextArea = styled.textarea`
     color: #cccccc;
     opacity: 1;
   }
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #d9d9d9;
+    border-radius: 16px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #aaa;
+    border: 1px solid #d9d9d9;
+    border-radius: 16px;
+  }
+
+  ::-webkit-scrollbar-track {
+    margin-top: 2px;
+    margin-bottom: 2px;
+  }
 `;

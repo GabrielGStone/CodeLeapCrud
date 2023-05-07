@@ -74,6 +74,7 @@ const EditModal: FC<EditModalProps> = ({
           control={control}
           error={errors.content}
           placeholder="Content here"
+          isContent
         >
           Content
         </TextInput>

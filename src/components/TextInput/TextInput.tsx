@@ -33,12 +33,7 @@ const TextInput: FC<TextInputProps> = ({
             {isContent ? (
               <TextArea placeholder={placeholder} {...field} />
             ) : (
-              <Input
-                style={{ height: isContent ? "" : "" }}
-                type={type}
-                placeholder={placeholder}
-                {...field}
-              />
+              <Input type={type} placeholder={placeholder} {...field} />
             )}
             {error && <ErrorMessage text={error.message} />}
           </>

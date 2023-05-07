@@ -24,12 +24,8 @@ const useRequest = () => {
   };
 
   const patch = async (endpoint: string, payload: any) => {
-    try {
-      const response = await axios.patch(endpoint, payload);
-      return response.data;
-    } catch (err: any) {
-      return err.response?.data;
-    }
+    const response = await axios.patch(endpoint, payload);
+    return response;
   };
 
   const _delete = async (endpoint: string) => {
