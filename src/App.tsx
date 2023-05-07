@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Signup from "./pages/Signup/Signup";
 import MainScreen from "./pages/MainScreen/MainScreen";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
