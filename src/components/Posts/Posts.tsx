@@ -24,16 +24,19 @@ const Posts: FC<postsProps> = ({ posts, getNextPosts }) => {
         loader={<>loading...</>}
       >
         {posts?.map(
-          (data: {
-            title: string;
-            username: string;
-            id: number;
-            content: string;
-            created_datetime: string;
-          }) => {
+          (
+            data: {
+              title: string;
+              username: string;
+              id: number;
+              content: string;
+              created_datetime: string;
+            },
+            index: number
+          ) => {
             const { title, username, id, content, created_datetime } = data;
             return (
-              <div key={id}>
+              <div key={index}>
                 <Post
                   title={title}
                   username={username}
