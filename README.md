@@ -24,6 +24,3 @@ When you first access the application, you will be taken to a signup page. Enter
 - Axios
 - React Hook Forms
 
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for more information.
