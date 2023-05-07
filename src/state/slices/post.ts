@@ -2,12 +2,10 @@ import { createSlice } from "@reduxjs/toolkit";
 
 interface InitialState {
   posts: any;
-  activePost: any;
 }
 
 const initialState: InitialState = {
   posts: [],
-  activePost: 0,
 };
 
 const postSlice = createSlice({
@@ -39,10 +37,6 @@ const postSlice = createSlice({
       state.posts = state.posts.filter(
         (post: any) => post.id !== action.payload
       );
-    },
-
-    setActivePost: (state, action) => {
-      state.activePost = action.payload;
     },
   },
 });

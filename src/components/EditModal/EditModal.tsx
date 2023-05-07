@@ -39,8 +39,8 @@ const EditModal: FC<EditModalProps> = ({
   } = useForm({
     resolver: yupResolver(schema),
     defaultValues: {
-      title: title,
-      content: content,
+      title: "",
+      content: "",
     },
   });
 
