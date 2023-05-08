@@ -37,8 +37,10 @@ export const PostContent = styled.p`
   font-size: 18px;
   line-height: 21px;
   padding: 0 24px 24px 24px;
-  max-width: 360px;
   overflow-wrap: break-word;
+  @media (max-width: 500px) {
+    max-width: 360px;
+  }
 `;
 
 export const Content = styled.div`
