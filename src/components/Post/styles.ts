@@ -16,6 +16,9 @@ export const Wrap = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 24px 24px 16px 24px;
+  @media (max-width: 1000px) {
+    max-width: 340px;
+  }
 `;
 
 export const PostName = styled.p`
@@ -33,13 +36,13 @@ export const PostTime = styled.p`
 `;
 
 export const PostContent = styled.p`
+  padding: 0 24px 24px 24px;
   font-weight: 400;
   font-size: 18px;
   line-height: 21px;
-  padding: 0 24px 24px 24px;
   overflow-wrap: break-word;
-  @media (max-width: 500px) {
-    max-width: 360px;
+  @media (max-width: 1000px) {
+    max-width: 340px;
   }
 `;
 
@@ -54,4 +57,14 @@ export const Content = styled.div`
 
 export const ButtonContainer = styled.div`
   display: flex;
+`;
+
+export const Title = styled.h4`
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 26px;
+  overflow-wrap: break-word;
+  @media (max-width: 1000px) {
+    max-width: 200px;
+  }
 `;

@@ -6,6 +6,7 @@ import {
   PostHeader,
   PostName,
   PostTime,
+  Title,
   Wrap,
 } from "./styles";
 import getRelativeTime from "../../utils/getRelativeTime";
@@ -49,7 +50,7 @@ const Post: FC<postProps> = ({
         id={id}
       />
       <PostHeader>
-        <>{title}</>
+        <Title>{title}</Title>
         {isMyPost && (
           <ButtonContainer>
             <DeleteButton setDeleteModalOpen={setDeleteModalOpen} />
@@ -63,9 +64,7 @@ const Post: FC<postProps> = ({
           <PostTime>{getRelativeTime(time)}</PostTime>
         </Wrap>
         {paragraphs.map((paragraph: string, index: number) => (
-          <PostContent key={index}>
-            <span>{paragraph}</span>
-          </PostContent>
+          <PostContent key={index}>{paragraph}</PostContent>
         ))}
       </Content>
     </>
