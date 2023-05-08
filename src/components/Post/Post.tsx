@@ -62,7 +62,9 @@ const Post: FC<postProps> = ({
           <PostTime>{getRelativeTime(time)}</PostTime>
         </Wrap>
         {content.split("\n\n").map((paragraph: string, index: number) => (
-          <PostContent key={index}>{paragraph}</PostContent>
+          <PostContent key={index}>
+            <span>{paragraph}</span>
+          </PostContent>
         ))}
       </Content>
     </>
