@@ -33,6 +33,7 @@ const Post: FC<postProps> = ({
   const [editModalOpen, setEditModalOpen] = useState(false);
   const [deleteModalOpen, setDeleteModalOpen] = useState(false);
 
+  const paragraphs = content.split("\n");
   return (
     <>
       <EditModal
@@ -61,8 +62,10 @@ const Post: FC<postProps> = ({
           <PostName>@{username}</PostName>
           <PostTime>{getRelativeTime(time)}</PostTime>
         </Wrap>
-        {content.split("\n\n").map((paragraph: string, index: number) => (
-          <PostContent key={index}>{paragraph}</PostContent>
+        {paragraphs.map((paragraph: string, index: number) => (
+          <PostContent key={index}>
+            <span>{paragraph}</span>
+          </PostContent>
         ))}
       </Content>
     </>

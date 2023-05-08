@@ -8,6 +8,11 @@ export const Container = styled.div`
   border: 1px solid #999;
   border-radius: 16px;
   margin-bottom: 24px;
+
+  @media (max-width: 1000px) {
+    min-width: 88.5vw;
+    max-width: 90vw;
+  }
 `;
 
 export const Title = styled.h3`
