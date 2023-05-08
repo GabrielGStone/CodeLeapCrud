@@ -38,7 +38,7 @@ export const PostContent = styled.p`
   line-height: 21px;
   padding: 0 24px 24px 24px;
   max-width: 360px;
-  overflow-x: scroll;
+  overflow-wrap: break-word;
 `;
 
 export const Content = styled.div`
