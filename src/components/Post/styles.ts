@@ -41,6 +41,8 @@ export const PostContent = styled.p`
   font-size: 18px;
   line-height: 21px;
   overflow-wrap: break-word;
+  max-width: 50vw;
+
   @media (max-width: 1000px) {
     max-width: 340px;
   }
@@ -64,6 +66,7 @@ export const Title = styled.h4`
   font-size: 22px;
   line-height: 26px;
   overflow-wrap: break-word;
+  max-width: 50vw;
   @media (max-width: 1000px) {
     max-width: 200px;
   }
